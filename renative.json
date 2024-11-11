@@ -17,7 +17,34 @@
     "plugins": {
         "react-native-screens": "source:rnv",
         "react-native-safe-area-context": "source:rnv",
-        "react-native-reanimated": "source:rnv",
+        "react-native-reanimated": {
+            "android": {
+                "package": "com.swmansion.reanimated.ReanimatedPackage"
+            },
+            "androidtv": {
+                "package": "com.swmansion.reanimated.ReanimatedPackage"
+            },
+            "androidwear": {
+                "package": "com.swmansion.reanimated.ReanimatedPackage"
+            },
+            "firetv": {
+                "package": "com.swmansion.reanimated.ReanimatedPackage"
+            },
+            "ios": {
+                "podName": "RNReanimated"
+            },
+            "macos": {
+                "podName": "RNReanimated"
+            },
+            "tvos": {
+                "podName": "RNReanimated"
+            },
+            "version": "3.11.0",
+            "disablePluginTemplateOverrides": true,
+            "webpackConfig": {
+                "modulePaths": true
+            }
+        },
         "@react-navigation/native": "source:rnv",
         "@expo/vector-icons": "^14.0.2",
         "expo": "~51.0.28",
