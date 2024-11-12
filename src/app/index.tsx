@@ -1,76 +1,77 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Text, Image, View, PixelRatio, TouchableOpacity, StatusBar, ScrollView, findNodeHandle } from 'react-native';
-import { Api, isFactorTv, isWebBased } from '@rnv/renative';
-import { ICON_LOGO, CONFIG, ThemeProvider, ThemeContext, testProps } from '../config';
-import packageJson from '../../package.json';
+import React, {  } from 'react';
+import { Image, Platform, View } from 'react-native';
+import { HelloWave } from '../components/HelloWave';
+import ParallaxScrollView from '../components/ParallaxScrollView';
+import { ThemedText } from '../components/ThemedText';
+import { ThemedView } from '../components/ThemedView';
+import { StyleSheet } from 'react-native';
 
 const App = () => (
-    <ThemeProvider>
         <AppThemed />
-    </ThemeProvider>
 );
 
 const AppThemed = () => {
-    const buttonRef = useRef<TouchableOpacity>(null);
-    const { theme, toggle, dark } = useContext(ThemeContext);
-    const [pixelRatio, setPixelRatio] = useState(1);
-    const [fontScale, setFontScale] = useState(1);
-    const [isClient, setIsClient] = useState(false);
-    const [isFocused, setIsFocused] = useState(false);
+  return (
+    <ParallaxScrollView
+      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerImage={
+        <Image
+          source={require('../assets/images/partial-react-logo.png')}
+          style={styles.reactLogo}
+        />
+      }>
+      <ThemedView style={styles.titleContainer}>
+        <ThemedText type="title">Welcome!</ThemedText>
+      </ThemedView>
+      <HelloWave/>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+        <ThemedText>
+          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
+          Press{' '}
+          <ThemedText type="defaultSemiBold">
+            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
+          </ThemedText>{' '}
+          to open developer tools.
+        </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+        <ThemedText>
+          Tap the Explore tab to learn more about what's included in this starter app.
+        </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
+        <ThemedText>
+          When you're ready, run{' '}
+          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
+          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
+          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
+          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+        </ThemedText>
+      </ThemedView>
+    </ParallaxScrollView>
+  );
+}
 
-    useEffect(() => {
-        setPixelRatio(PixelRatio.get());
-        setFontScale(PixelRatio.getFontScale());
-        setIsClient(true);
-        if (isWebBased && isFactorTv && buttonRef?.current) {
-            buttonRef?.current.focus();
-        }
-    }, []);
-
-    return (
-        <View style={theme.styles.wrapper}>
-            <ScrollView style={theme.styles.scrollView} contentContainerStyle={theme.styles.container}>
-                <StatusBar
-                    backgroundColor={theme.styles.container.backgroundColor}
-                    barStyle={dark ? 'light-content' : 'dark-content'}
-                />
-                <Image
-                    style={theme.styles.image}
-                    source={ICON_LOGO}
-                    {...testProps('template-starter-home-screen-renative-image')}
-                />
-                <Text style={theme.styles.textH2} {...testProps('template-starter-home-screen-welcome-message-text')}>
-                    {CONFIG.welcomeMessage}
-                </Text>
-                <Text style={theme.styles.textH2} {...testProps('template-starter-home-screen-version-number-text')}>
-                    v {packageJson.version}
-                </Text>
-                {isClient ? (
-                    <Text style={theme.styles.textH3}>
-                        {`platform: ${Api.platform}, factor: ${Api.formFactor}, engine: ${Api.engine}`}
-                    </Text>
-                ) : null}
-                <Text style={theme.styles.textH3}>{`hermes: ${
-                    typeof HermesInternal === 'object' && HermesInternal !== null ? 'yes' : 'no'
-                }`}</Text>
-                <Text style={theme.styles.textH3}>{`pixelRatio: ${pixelRatio}, ${fontScale}`}</Text>
-                <TouchableOpacity
-                    ref={buttonRef}
-                    onPress={toggle}
-                    onFocus={() => setIsFocused(true)}
-                    onBlur={() => setIsFocused(false)}
-                    style={[theme.styles.button, isFocused && { ...theme.styles.focusedButton, outline: 'none' }]}
-                    // Set the initial AndroidTV and tvOS focus to be on the button
-                    hasTVPreferredFocus
-                    // On AndroidTV going up can appear as lost focus, so block focus up
-                    nextFocusUp={findNodeHandle(buttonRef.current) || undefined}
-                    {...testProps('template-starter-home-screen-try-my-button')}
-                >
-                    <Text style={theme.styles.buttonText}>Try me!</Text>
-                </TouchableOpacity>
-            </ScrollView>
-        </View>
-    );
-};
+const styles = StyleSheet.create({
+  titleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  stepContainer: {
+    gap: 8,
+    marginBottom: 8,
+  },
+  reactLogo: {
+    height: 178,
+    width: 290,
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+  },
+});
 
 export default App;
