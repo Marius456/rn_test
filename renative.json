@@ -39,7 +39,7 @@
             "tvos": {
                 "podName": "RNReanimated"
             },
-            "version": "3.11.0",
+            "version": "3.16.1",
             "disablePluginTemplateOverrides": true,
             "webpackConfig": {
                 "modulePaths": true
