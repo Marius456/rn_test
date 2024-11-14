@@ -1,7 +1,6 @@
 import React from 'react';
 import { useColorScheme } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import ExploreScreen from './explore';
 import HomeScreen from './home';
 import { TabBarIcon } from '../components/navigation/TabBarIcon';
@@ -14,7 +13,6 @@ const App = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
       }}>
       <Tab.Screen
