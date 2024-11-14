@@ -1,10 +1,10 @@
 const { withRNVMetro } = require('@rnv/adapter');
 
-// module.exports = withRNVMetro({});
+module.exports = withRNVMetro({});
 
-const {
-    wrapWithReanimatedMetroConfig,
-} = require('react-native-reanimated/metro-config');
+// const {
+//     wrapWithReanimatedMetroConfig,
+// } = require('react-native-reanimated/metro-config');
 
 
-module.exports = wrapWithReanimatedMetroConfig(withRNVMetro({}));
+// module.exports = wrapWithReanimatedMetroConfig(withRNVMetro({}));

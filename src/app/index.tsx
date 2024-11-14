@@ -1,21 +1,25 @@
-import React, {  } from 'react';
+import React from 'react';
 import { useColorScheme } from 'react-native';
-import { Tabs } from 'expo-router';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { TabBarIcon } from '../components/navigation/TabBarIcon';
 import ExploreScreen from './explore';
+import HomeScreen from './home';
+import { TabBarIcon } from '../components/navigation/TabBarIcon';
+
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   const colorScheme = useColorScheme();
 
   return (
-    <Tabs
+    <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
       }}>
-      <Tabs.Screen
-        name="home"
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
         options={{
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
@@ -23,8 +27,9 @@ const App = () => {
           ),
         }}
       />
-      <Tabs.Screen
-        name="explore"
+      <Tab.Screen
+        name="Explore"
+        component={ExploreScreen}
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, focused }) => (
@@ -32,9 +37,8 @@ const App = () => {
           ),
         }}
       />
-    </Tabs>
+    </Tab.Navigator>
   );
-}
-
+};
 
 export default App;
