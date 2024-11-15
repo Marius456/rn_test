@@ -4298,9 +4298,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.5.41:
-  version "1.5.58"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.58.tgz#d90bd7a04d9223dce4e72316e14492140ec9af40"
-  integrity sha512-al2l4r+24ZFL7WzyPTlyD0fC33LLzvxqLCwurtBibVPghRGO9hSTl+tis8t1kD7biPiH/en4U0I7o/nQbYeoVA==
+  version "1.5.60"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.60.tgz#29944afe568c58c40729e67af0f59f52d4d0ed32"
+  integrity sha512-HcraRUkTKJ+8yA3b10i9qvhUlPBRDlKjn1XGek1zDGVfAKcvi8TsUnImGqLiEm9j6ZulxXIWWIo9BmbkbCTGgA==
 
 emittery@^0.13.1:
   version "0.13.1"
@@ -4676,9 +4676,9 @@ flow-enums-runtime@^0.0.6:
   integrity sha512-3PYnM29RFXwvAN6Pc/scUfkI7RwhQ/xqyLUyPNlXUp9S40zI8nup9tUSrTLSVnWGBN38FNiGWbwZOB6uR4OGdw==
 
 flow-parser@0.*:
-  version "0.252.0"
-  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.252.0.tgz#8f9795cbd1b5108f1aec2602f951dcb97ffbd247"
-  integrity sha512-z8hKPUjZ33VLn4HVntifqmEhmolUMopysnMNzazoDqo1GLUkBsreLNsxETlKJMPotUWStQnen6SGvUNe1j4Hlg==
+  version "0.253.0"
+  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.253.0.tgz#d2f52afe2eec89534d4adc384373b70f5fa35d7c"
+  integrity sha512-EbxtzRIzp8dDSzTloPhsc6uOvrEFIyu08cqQzXBWLAgxK+i2d/5qOos9ryQHRmk+RyDDXfnz/7qteh3jnAlc4w==
 
 flow-parser@^0.206.0:
   version "0.206.0"
